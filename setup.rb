@@ -9,11 +9,11 @@ ActiveRecord::Base.logger = Logger.new(STDOUT)
 puts 'Establishing connection to database ...'
 ActiveRecord::Base.establish_connection(
   adapter: 'postgresql',
-  database: 'ar_exercises',
-  username: 'development',
-  password: 'development',
-  host: 'localhost',
-  port: 5432,
+  database: ENV['PGDATABASE'],
+  username: ENV['PGUSER'],
+  password: ENV['PGPASSWORD'],
+  host: ENV['PGHOST'],
+  port: ENV['PGPORT'],
   pool: 5,
   encoding: 'unicode',
   min_messages: 'error'
